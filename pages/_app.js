@@ -9,6 +9,13 @@ const GlobalStyle = createGlobalStyle`
                 Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
                 sans-serif;
         min-height: 100vh;
+        font-size: 100%;
+        line-height: 2rem;
+    }
+    header {
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+                Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+                sans-serif;
     }
     .container {
         display: flex;
