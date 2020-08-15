@@ -1,9 +1,13 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { NavBar } from "../components/NavBar";
 import { Introduction } from "../components/Introduction";
+import { SideModal } from "../components/SideModal";
 
 export default function Home() {
+  const [dropdown, setDropdown] = useState(false);
+
   return (
     <>
       <header>
@@ -11,10 +15,14 @@ export default function Home() {
           <title>Edward Wang - Portfolio</title>
           <link rel="icon" href="/logo.png" />
         </Head>
-        <NavBar />
+        <NavBar openDropdown={() => setDropdown(true)}></NavBar>
       </header>
 
       <Main>
+        <SideModal
+          closeDropdown={() => setDropdown(false)}
+          isDropdownVisible={dropdown}
+        />
         <Introduction />
       </Main>
 
@@ -27,6 +35,7 @@ const Main = styled.main`
   margin: 0 auto;
   max-width: 100%;
   width: 880px;
+  overflow: hidden;
 `;
 
 const Footer = styled.footer`

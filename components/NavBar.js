@@ -3,72 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export const NavBar = (props) => {
+  const { closeDropdown, openDropdown, isDropdownVisible } = props;
+
   return (
     <MainContainer>
       <RightNavBar>
         <RightNavBarLink href="#About">About</RightNavBarLink>
         <RightNavBarLink href="#Experience">Experience</RightNavBarLink>
         <RightNavBarLink href="#Projects">Projects</RightNavBarLink>
-        <HamburgerIcon icon={faBars} color="grey" />
+        <HamburgerIcon
+          icon={faBars}
+          color="grey"
+          onClick={() => {
+            openDropdown();
+          }}
+        />
       </RightNavBar>
-      <List>
-        <CrossIcon icon={faTimes} color="white" />
-        <li>About</li>
-        <li>Experience</li>
-        <li>Project</li>
-      </List>
     </MainContainer>
   );
 };
-
-const List = styled.ul`
-  display: none;
-  @media (max-width: 600px) {
-    list-style: none;
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: #0d2538;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    padding-top: 3.5rem;
-    margin-top: 0;
-    transition: transform 0.3s ease-in-out;
-    li {
-      color: #fff;
-    }
-
-  }
-  /* @media (max-width: 768px) {
-    flex-flow: column nowrap;
-    background-color: #0d2538;
-    position: fixed;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 300px;
-    padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
-    li {
-      color: #fff;
-    }
-  } */
-`;
-
-const CrossIcon = styled(FontAwesomeIcon)`
-  display: none;
-  @media (max-width: 600px) {
-    width: 25px;
-    top: 0px;
-    position: absolute;
-    right: 0px;
-    display: flex;
-    margin: 1rem;
-  }
-`;
 
 const HamburgerIcon = styled(FontAwesomeIcon)`
   display: none;
@@ -78,14 +31,16 @@ const HamburgerIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-const MainContainer = styled.header`
+const MainContainer = styled.div`
   width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
   height: 100px;
   padding: 0 22px;
-  /* overflow: hidden; */
+  @media (max-width: 600px) {
+    z-index: -1;
+  }
 `;
 
 const RightNavBar = styled.div`
