@@ -3,7 +3,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import { NavBar } from "../components/NavBar";
 import { Introduction } from "../components/Introduction";
-import { SideModal } from "../components/SideModal";
+import { SideModal } from "../components/RightNav";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
@@ -15,7 +15,7 @@ export default function Home() {
           <title>Edward Wang - Portfolio</title>
           <link rel="icon" href="/logo.png" />
         </Head>
-        <NavBar openDropdown={() => setDropdown(true)}></NavBar>
+        <NavBar openDropdown={() => setDropdown(true)} />
       </header>
 
       <Main>

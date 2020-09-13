@@ -7,10 +7,10 @@ export const NavBar = (props) => {
 
   return (
     <MainContainer>
-      <RightNavBar>
-        <RightNavBarLink href="#About">About</RightNavBarLink>
-        <RightNavBarLink href="#Experience">Experience</RightNavBarLink>
-        <RightNavBarLink href="#Projects">Projects</RightNavBarLink>
+      <NavBarWrapper>
+        <NavBarLink href="#About">About</NavBarLink>
+        <NavBarLink href="#Experience">Experience</NavBarLink>
+        <NavBarLink href="#Projects">Projects</NavBarLink>
         <HamburgerIcon
           icon={faBars}
           color="grey"
@@ -18,7 +18,7 @@ export const NavBar = (props) => {
             openDropdown();
           }}
         />
-      </RightNavBar>
+      </NavBarWrapper>
     </MainContainer>
   );
 };
@@ -43,12 +43,12 @@ const MainContainer = styled.div`
   }
 `;
 
-const RightNavBar = styled.div`
+const NavBarWrapper = styled.div`
   margin-left: auto;
   display: flex;
 `;
 
-const RightNavBarLink = styled.a`
+const NavBarLink = styled.a`
   color: grey;
   text-decoration: none;
   font-size: 1.2rem;
