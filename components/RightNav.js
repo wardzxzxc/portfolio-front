@@ -1,15 +1,11 @@
 import { useRef } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export const SideModal = (props) => {
   const { closeDropdown, isDropdownVisible } = props;
-  const sideModalRef = useRef(null);
 
-  function handleClick() {
-    sideModalRef.current.classList.toggle();
-  }
   return (
     <MainContainer container isVisible={isDropdownVisible}>
       <IconWrapper>

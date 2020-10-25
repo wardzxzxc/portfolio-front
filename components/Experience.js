@@ -1,17 +1,11 @@
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
-export const Introduction = (props) => {
-
-
+export const Experience = (props) => {
   return (
     <MainContainer container>
-      <Grid item md={5}>
-        <ProfilePic src="/profilePic2.jpg" alt="Avatar" />
-      </Grid>
       <Grid item md={7}>
         <WriteUp>
-          <Greeting>Hi, I'm Edward</Greeting>
           <Description>
             I'm a Full-stack Developer based in Sunny Singapore. I recently
             graduated from National University of Singapore. I'm experienced
@@ -26,10 +20,7 @@ export const Introduction = (props) => {
   );
 };
 
-const Greeting = styled.h1`
-  margin-top: 0px;
-  font-size: 2rem;
-`;
+
 const Description = styled.p`
   font-weight: 500;
   color: #8f929a;
@@ -43,15 +34,6 @@ const MainContainer = styled(Grid)`
   align-items: center;
 `;
 
-const ProfilePic = styled.img`
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
-  &:hover {
-   transform: rotateY(360deg);
-   transition: transform 0.8s ease-in-out;
-  }  
-`;
 
 const WriteUp = styled.div`
   display: flex;
@@ -69,4 +51,4 @@ const WriteUp = styled.div`
   }
 `;
 
-export default Introduction;
+export default Experience;

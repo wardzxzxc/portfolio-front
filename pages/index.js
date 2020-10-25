@@ -4,9 +4,18 @@ import styled from "styled-components";
 import { NavBar } from "../components/NavBar";
 import { Introduction } from "../components/Introduction";
 import { SideModal } from "../components/RightNav";
+import {Experience}  from "../components/Experience";
+import {CarouselLeftArrow} from "../components/CarouselLeftArrow";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(false);
+  const [activeIndex, setActiveIndex ] = useState(0);
+  const [carouselLength, setCarouselLength] = useState(0);
+
+  useEffect(() => {
+    setInitialLoad(true);
+  }, [])
 
   return (
     <>
@@ -23,7 +32,9 @@ export default function Home() {
           closeDropdown={() => setDropdown(false)}
           isDropdownVisible={dropdown}
         />
-        <Introduction />
+        <Introduction initialLoad/>
+        <Experience/>
+        <CarouselLeftArrow/>
       </Main>
 
       <Footer>2020 © Copyright Edward Wang.</Footer>
