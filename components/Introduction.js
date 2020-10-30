@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 export const Introduction = (props) => {
-
-
   return (
     <MainContainer container>
       <Grid item md={5}>
@@ -14,10 +12,8 @@ export const Introduction = (props) => {
           <Greeting>Hi, I'm Edward</Greeting>
           <Description>
             I'm a Full-stack Developer based in Sunny Singapore. I recently
-            graduated from National University of Singapore. I'm experienced
-            in modern Front-end framework like <b>React</b> and Back-end
-            frameworks like <b>NodeJs</b> and <b>Java Spring</b>. I also do have
-            experiences in containerising applications using <b>Docker</b>.
+            graduated from National University of Singapore. I love to see ideas
+            come into fruition and that's why I started learning coding!
           </Description>
           <Description>Oh, I'm a huge music enthusiast too!</Description>
         </WriteUp>
@@ -26,9 +22,40 @@ export const Introduction = (props) => {
   );
 };
 
+const TypeWriter = keyframes`
+  from {
+    width: 0; 
+  }
+
+  to {
+    width: 16rem;
+  }
+`;
+
+const BlinkTextCursor = keyframes`
+  from {
+    border-right-color: black; 
+  }
+  to {
+    border-right-color: transparent;
+  }
+`;
+
 const Greeting = styled.h1`
   margin-top: 0px;
   font-size: 2rem;
+  font-family: "Anonymous Pro", monospace;
+  overflow: hidden;
+  border-right: 2px solid black;
+  width: 16rem;
+  position: relative;
+  white-space: nowrap;
+  animation: ${TypeWriter} 4s steps(44, end) 500ms 1 normal both,
+    ${BlinkTextCursor} 400ms steps(44, end) infinite normal;
+  @media (max-width: 600px) {
+    width: 100%;
+    align-self: center;
+  }
 `;
 const Description = styled.p`
   font-weight: 500;
@@ -41,16 +68,24 @@ const Description = styled.p`
 const MainContainer = styled(Grid)`
   justify-content: center;
   align-items: center;
+  margin-bottom: 10%;
+`;
+
+const RotateY = keyframes`
+to {
+  transform: rotateY(360deg);
+}
 `;
 
 const ProfilePic = styled.img`
   border-radius: 50%;
   height: 200px;
   width: 200px;
+  animation: ${RotateY} 1s linear;
   &:hover {
-   transform: rotateY(360deg);
-   transition: transform 0.8s ease-in-out;
-  }  
+    transform: rotateY(360deg);
+    transition: transform 0.8s ease-in-out;
+  }
 `;
 
 const WriteUp = styled.div`

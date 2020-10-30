@@ -9,7 +9,7 @@ export const NavBar = (props) => {
     <MainContainer>
       <NavBarWrapper>
         <NavBarLink href="#About">About</NavBarLink>
-        <NavBarLink href="#Experience">Experience</NavBarLink>
+        <NavBarLink href="#Skills">Skills</NavBarLink>
         <NavBarLink href="#Projects">Projects</NavBarLink>
         <HamburgerIcon
           icon={faBars}

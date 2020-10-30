@@ -5,16 +5,7 @@ export const Experience = (props) => {
   return (
     <MainContainer container>
       <Grid item md={7}>
-        <WriteUp>
-          <Description>
-            I'm a Full-stack Developer based in Sunny Singapore. I recently
-            graduated from National University of Singapore. I'm experienced
-            in modern Front-end framework like <b>React</b> and Back-end
-            frameworks like <b>NodeJs</b> and <b>Java Spring</b>. I also do have
-            experiences in containerising applications using <b>Docker</b>.
-          </Description>
-          <Description>Oh, I'm a huge music enthusiast too!</Description>
-        </WriteUp>
+        test
       </Grid>
     </MainContainer>
   );
@@ -32,6 +23,7 @@ const Description = styled.p`
 const MainContainer = styled(Grid)`
   justify-content: center;
   align-items: center;
+  background-color: purple; 
 `;
 
 
