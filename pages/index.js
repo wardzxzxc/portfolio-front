@@ -4,16 +4,18 @@ import styled from "styled-components";
 import { NavBar } from "../components/NavBar";
 import { Introduction } from "../components/Introduction";
 import { SideModal } from "../components/RightNav";
-import {Experience}  from "../components/Experience";
-
+import { Experience } from "../components/Experience";
 
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
   const [initialLoad, setInitialLoad] = useState(false);
+  const [ubsState, toggleUbs] = useState(false);
+  const [jtcState, toggleJtc] = useState(false);
+  const [activateState, toggleActivate] = useState(false);
 
   useEffect(() => {
     setInitialLoad(true);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -30,8 +32,17 @@ export default function Home() {
           closeDropdown={() => setDropdown(false)}
           isDropdownVisible={dropdown}
         />
-        <Introduction initialLoad/>
-        <Experience/>
+        <Introduction />
+        <Experience
+          ubsState={ubsState}
+          toggleUbs={() => {
+            toggleUbs(!ubsState);
+          }}
+          jtcState={jtcState}
+          toggleJtc={() => toggleJtc(!jtcState)}
+          activateState={activateState}
+          toggleActivate={() => toggleActivate(!activateState)}
+        />
       </Main>
 
       <Footer>2020 © Copyright Edward Wang.</Footer>

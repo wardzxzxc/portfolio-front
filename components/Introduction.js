@@ -5,7 +5,7 @@ export const Introduction = (props) => {
   return (
     <MainContainer container>
       <Grid item md={5}>
-        <ProfilePic src="/profilePic2.jpg" alt="Avatar" />
+        <ProfilePic src="/images/ProfilePic.jpg" alt="Avatar" />
       </Grid>
       <Grid item md={7}>
         <WriteUp>
@@ -13,14 +13,35 @@ export const Introduction = (props) => {
           <Description>
             I'm a Full-stack Developer based in Sunny Singapore. I recently
             graduated from National University of Singapore. I love to see ideas
-            come into fruition and that's why I started learning coding!
+            come into fruition and that's why I started learning coding! Oh, I'm
+            a huge music enthusiast too!
           </Description>
-          <Description>Oh, I'm a huge music enthusiast too!</Description>
+          <Description>
+            Here are a list of technologies that I'm working / have worked with:
+            <Technologies>
+              <li>React</li>
+              <li>HTML & CSS</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>Java Spring Boot</li>
+              <li>SQL</li>
+              <li>Oracle</li>
+              <li>Docker</li>
+            </Technologies>
+          </Description>
         </WriteUp>
       </Grid>
     </MainContainer>
   );
 };
+
+const Technologies = styled.ul`
+  columns: 2;
+  @media (max-width: 600px) {
+    text-align: left !important;
+    margin: 5% 5%;
+  }
+`;
 
 const TypeWriter = keyframes`
   from {
@@ -68,7 +89,6 @@ const Description = styled.p`
 const MainContainer = styled(Grid)`
   justify-content: center;
   align-items: center;
-  margin-bottom: 10%;
 `;
 
 const RotateY = keyframes`
@@ -79,8 +99,8 @@ to {
 
 const ProfilePic = styled.img`
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 210px;
+  width: 210px;
   animation: ${RotateY} 1s linear;
   &:hover {
     transform: rotateY(360deg);

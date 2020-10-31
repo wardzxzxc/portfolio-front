@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
+import Tabs from "./Tabs";
 
 export const Experience = (props) => {
   return (
     <MainContainer container>
-      <Grid item md={7}>
-        test
+      <Grid item md={9}>
+        <h1>Experience</h1>
+        <Tabs {...props} />
       </Grid>
     </MainContainer>
   );
 };
 
+const Logo = styled.img`
+  height: 150px;
+  width: 150px;
+`;
 
 const Description = styled.p`
   font-weight: 500;
@@ -23,24 +29,6 @@ const Description = styled.p`
 const MainContainer = styled(Grid)`
   justify-content: center;
   align-items: center;
-  background-color: purple; 
-`;
-
-
-const WriteUp = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  text-justify: inter-word;
-  margin-top: 5%;
-  @media (max-width: 960px) {
-    margin: 5% 5%;
-  }
-  @media (max-width: 600px) {
-    text-align: center;
-    margin: 5% 5%;
-  }
 `;
 
 export default Experience;
