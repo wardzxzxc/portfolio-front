@@ -5,7 +5,7 @@ import Tabs from "./Tabs";
 export const Experience = (props) => {
   return (
     <MainContainer container>
-      <Grid item md={9}>
+      <Grid item md={10} lg={12}>
         <h1>Experience</h1>
         <Tabs {...props} />
       </Grid>

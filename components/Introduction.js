@@ -78,7 +78,7 @@ const Greeting = styled.h1`
     align-self: center;
   }
 `;
-const Description = styled.p`
+const Description = styled.div`
   font-weight: 500;
   color: #8f929a;
   font-size: 1.2rem;

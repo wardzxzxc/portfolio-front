@@ -9,9 +9,10 @@ import { Experience } from "../components/Experience";
 export default function Home() {
   const [dropdown, setDropdown] = useState(false);
   const [initialLoad, setInitialLoad] = useState(false);
-  const [ubsState, toggleUbs] = useState(false);
-  const [jtcState, toggleJtc] = useState(false);
-  const [activateState, toggleActivate] = useState(false);
+  const [currentActiveTab, setCurrentActiveTab] = useState("UBS");
+  const [ubsState, setUbsState] = useState(true);
+  const [jtcState, setJtcState] = useState(false);
+  const [activateState, setActivateState] = useState(false);
 
   useEffect(() => {
     setInitialLoad(true);
@@ -34,14 +35,10 @@ export default function Home() {
         />
         <Introduction />
         <Experience
-          ubsState={ubsState}
-          toggleUbs={() => {
-            toggleUbs(!ubsState);
-          }}
-          jtcState={jtcState}
-          toggleJtc={() => toggleJtc(!jtcState)}
-          activateState={activateState}
-          toggleActivate={() => toggleActivate(!activateState)}
+          currentActiveTab={currentActiveTab}
+          setUbsActive={() => setCurrentActiveTab("UBS")}
+          setJtcActive={() => setCurrentActiveTab("JTC")}
+          setActivateActive={() => setCurrentActiveTab("Activate")}
         />
       </Main>
 
