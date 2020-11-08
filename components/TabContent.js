@@ -30,6 +30,11 @@ export const TabContent = (props) => {
   );
 };
 
+const Logo = styled.img`
+  height: 150px;
+  width: 150px;
+`;
+
 const Dates = styled.p`
   margin: 0;
 `;
@@ -44,7 +49,6 @@ const CompanyName = styled.h2`
 
 const MainContainer = styled.div`
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
   color: #8f929a;
 `;

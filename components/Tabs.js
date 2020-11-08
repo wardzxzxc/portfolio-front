@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TabContent } from "./TabContent";
-
+import React, { useState } from "react";
 export const Tabs = (props) => {
   const {
     currentActiveTab,
@@ -56,27 +56,39 @@ export const Tabs = (props) => {
 
   var activeTabDisplay;
   if (currentActiveTab == "UBS") {
+    //setActiveTab("UBS");
     activeTabDisplay = <TabContent experience={ubsExperience} />;
   } else if (currentActiveTab == "JTC") {
+    //setActiveTab("JTC");
     activeTabDisplay = <TabContent experience={jtcExperience} />;
   } else {
+    //setActiveTab("Activate");
     activeTabDisplay = <TabContent experience={activateExperience} />;
   }
 
   return (
     <MainContainer container>
-      <TabButtonUbs currentActiveTab={currentActiveTab} onClick={setUbsActive}>
+      <TabButton
+        id="UBS"
+        onClick={setUbsActive}
+        active={"UBS" === currentActiveTab}
+      >
         UBS AG
-      </TabButtonUbs>
-      <TabButtonJtc currentActiveTab={currentActiveTab} onClick={setJtcActive}>
+      </TabButton>
+      <TabButton
+        id="JTC"
+        onClick={setJtcActive}
+        active={"JTC" === currentActiveTab}
+      >
         JTC Corporation
-      </TabButtonJtc>
-      <TabButtonActivate
-        currentActiveTab={currentActiveTab}
+      </TabButton>
+      <TabButton
+        id="Activate"
         onClick={setActivateActive}
+        active={"Activate" === currentActiveTab}
       >
         Activate Interactive Pte Ltd
-      </TabButtonActivate>
+      </TabButton>
       {activeTabDisplay}
     </MainContainer>
   );
@@ -84,41 +96,19 @@ export const Tabs = (props) => {
 
 const MainContainer = styled.div`
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
   text-align: justify;
 `;
 
-const TabButtonUbs = styled.button`
+const TabButton = styled.button`
   border: none;
   outline: none;
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 1rem;
   font-family: inherit;
-  background-color: ${(currentActiveTab) => console.log(currentActiveTab)};
-`;
-
-const TabButtonJtc = styled.button`
-  border: none;
-  outline: none;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: ${(currentActiveTab) =>
-    currentActiveTab == "JTC" ? "grey" : "white"};
-`;
-
-const TabButtonActivate = styled.button`
-  border: none;
-  outline: none;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: ${(currentActiveTab) =>
-    currentActiveTab == "Activate" ? "grey" : "white"};
+  background-color: white !important;
+  cursor: pointer;
+  border-bottom: ${(props) => (props.active ? "2px solid black" : null)};
 `;
 
 export default Tabs;

@@ -10,9 +10,6 @@ export default function Home() {
   const [dropdown, setDropdown] = useState(false);
   const [initialLoad, setInitialLoad] = useState(false);
   const [currentActiveTab, setCurrentActiveTab] = useState("UBS");
-  const [ubsState, setUbsState] = useState(true);
-  const [jtcState, setJtcState] = useState(false);
-  const [activateState, setActivateState] = useState(false);
 
   useEffect(() => {
     setInitialLoad(true);
