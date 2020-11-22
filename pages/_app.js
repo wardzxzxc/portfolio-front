@@ -1,26 +1,25 @@
 import { createGlobalStyle } from "styled-components";
+import { colors } from "../utils/constants/colors";
 import "./_app.css";
 
 const GlobalStyle = createGlobalStyle`
     html,
-    body {
+    body{
         padding: 0;
         margin: 0;
+        height: 100%;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
                 Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
                 sans-serif;
-        min-height: 100vh;
         font-size: 100%;
         line-height: 2rem;
+        min-width: 600px;
+        background-color: ${colors.backgroundColor};  
     }
     header {
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
                 Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
                 sans-serif;
-    }
-    .container {
-        display: flex;
-        flex: 1;
     }
     * {
         box-sizing: border-box;

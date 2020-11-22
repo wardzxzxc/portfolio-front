@@ -1,9 +1,7 @@
-import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
-import { render } from "react-dom";
 import styled from "styled-components";
 
 export const TabContent = (props) => {
-  const { experience } = props;
+  const { experience, active } = props;
 
   var date;
   if (experience.present) {
@@ -18,7 +16,7 @@ export const TabContent = (props) => {
 
   return (
     <MainContainer container>
-      <CompanyName> {experience.company}</CompanyName>
+      <h2> {experience.company}</h2>
       <Experience>{experience.role}</Experience>
       {date}
       <ul>
@@ -30,11 +28,6 @@ export const TabContent = (props) => {
   );
 };
 
-const Logo = styled.img`
-  height: 150px;
-  width: 150px;
-`;
-
 const Dates = styled.p`
   margin: 0;
 `;
@@ -43,12 +36,9 @@ const Experience = styled.p`
   margin: 0;
 `;
 
-const CompanyName = styled.h2`
-  margin: 0;
-`;
-
 const MainContainer = styled.div`
   padding: 6px 12px;
   border-top: none;
-  color: #8f929a;
+  color: black;
+  font-weight: 500;
 `;

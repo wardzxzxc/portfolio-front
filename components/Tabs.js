@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TabContent } from "./TabContent";
-import React, { useState } from "react";
+
 export const Tabs = (props) => {
   const {
     currentActiveTab,
@@ -19,7 +19,7 @@ export const Tabs = (props) => {
     firstDescription:
       "Worked with a global team that does ETL on Financial Data as part of financial reporting",
     secondDescription:
-      "Developed ETL processes using PL/SQL to extract sample datasets as part of the implementation of CI/CD",
+      "Developed ETL processes using PL/SQL to extract sample datasets as part of CI/CD implementation",
     thirdDescription:
       "Led the team in Technical Writing of current systems and processes",
   };
@@ -56,14 +56,26 @@ export const Tabs = (props) => {
 
   var activeTabDisplay;
   if (currentActiveTab == "UBS") {
-    //setActiveTab("UBS");
-    activeTabDisplay = <TabContent experience={ubsExperience} />;
+    activeTabDisplay = (
+      <TabContent
+        experience={ubsExperience}
+        active={"UBS" === currentActiveTab}
+      />
+    );
   } else if (currentActiveTab == "JTC") {
-    //setActiveTab("JTC");
-    activeTabDisplay = <TabContent experience={jtcExperience} />;
+    activeTabDisplay = (
+      <TabContent
+        experience={jtcExperience}
+        active={"JTC" === currentActiveTab}
+      />
+    );
   } else {
-    //setActiveTab("Activate");
-    activeTabDisplay = <TabContent experience={activateExperience} />;
+    activeTabDisplay = (
+      <TabContent
+        experience={activateExperience}
+        active={"Activate" === currentActiveTab}
+      />
+    );
   }
 
   return (
@@ -106,9 +118,16 @@ const TabButton = styled.button`
   transition: 0.3s;
   font-size: 1rem;
   font-family: inherit;
-  background-color: white !important;
+  background-color: white;
+  font-weight: 500;
   cursor: pointer;
   border-bottom: ${(props) => (props.active ? "2px solid black" : null)};
+  color: ${(props) => (props.active ? "black" : "#8f929a")};
+  background-color: ${(props) => (props.active ? "#cdced1" : "white")};
+  &:hover {
+    background-color: #cdced1;
+    color: black;
+  }
 `;
 
 export default Tabs;

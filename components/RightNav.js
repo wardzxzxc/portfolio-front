@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../utils/constants/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,7 +11,7 @@ export const SideModal = (props) => {
       <IconWrapper>
         <CrossIcon
           icon={faTimes}
-          color="grey"
+          color="white"
           onClick={() => {
             closeDropdown();
           }}
@@ -29,7 +30,7 @@ const MainContainer = styled.div`
   display: none;
   @media (max-width: 600px) {
     height: 100%;
-    background-color: white;
+    background-color: ${colors.backgroundColor};
     display: flex;
     flex-direction: column;
     z-index: 1;
