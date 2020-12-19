@@ -25,6 +25,9 @@ export const SideModal = (props) => {
           spy={true}
           smooth={true}
           duration={1000}
+          onClick={() => {
+            closeDropdown();
+          }}
         >
           About
         </NavLink>
