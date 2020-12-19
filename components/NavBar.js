@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { colors } from "../utils/constants/colors";
+import { Link } from "react-scroll";
 
 export const NavBar = (props) => {
   const { closeDropdown, openDropdown, isDropdownVisible } = props;
@@ -9,7 +10,15 @@ export const NavBar = (props) => {
   return (
     <MainContainer>
       <NavBarWrapper>
-        <NavBarLink href="#About">About</NavBarLink>
+        <NavBarLink
+          activeClass="active"
+          to="aboutSection"
+          spy={true}
+          smooth={true}
+          duration={1000}
+        >
+          About
+        </NavBarLink>
         <NavBarLink href="#Skills">Experience</NavBarLink>
         <NavBarLink href="#Projects">Projects</NavBarLink>
         <HamburgerIcon
@@ -26,7 +35,7 @@ export const NavBar = (props) => {
 
 const HamburgerIcon = styled(FontAwesomeIcon)`
   display: none;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     display: block;
     width: 25px;
   }
@@ -39,8 +48,11 @@ const MainContainer = styled.div`
   align-items: center;
   height: 10vh;
   padding: 0 22px;
-  @media (max-width: 600px) {
-    z-index: -1;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  @media (max-width: 768px) {
+    z-index: 2;
   }
 `;
 
@@ -49,18 +61,19 @@ const NavBarWrapper = styled.div`
   display: flex;
 `;
 
-const NavBarLink = styled.a`
+const NavBarLink = styled(Link)`
   color: ${colors.inactiveLinkColor};
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   opacity: 0.9;
-  padding: 0 0.5rem;
+  padding: 0 0.8rem;
   font-weight: 500;
+  z-index: 5;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: ${colors.activeLinkColor};
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;

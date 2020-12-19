@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
                 sans-serif;
         font-size: 100%;
         line-height: 2rem;
-        min-width: 600px;
         background-color: ${colors.backgroundColor};  
+        min-width: 320px;
     }
     header {
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

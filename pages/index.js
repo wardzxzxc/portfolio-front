@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { NavBar } from "../components/NavBar";
-import { IntroductionSection } from "../components/IntroductionSection";
+import { LandingSection } from "../components/LandingSection";
+import { AboutSection } from "../components/AboutSection";
 import { Footer } from "../components/Footer";
 import { SideModal } from "../components/RightNav";
 import { Experience } from "../components/Experience";
@@ -24,8 +25,8 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
+          content="width=device-width,minimum-scale=1,maximum-scale=1"
+        />
       </Head>
       <NavBar openDropdown={() => setDropdown(true)} />
       <SideModal
@@ -33,9 +34,9 @@ export default function Home() {
         isDropdownVisible={dropdown}
       />
       <Content>
-        <IntroductionSection />
+        <LandingSection id="landingSection" />
+        <AboutSection />
       </Content>
-
       {/* <Experience
         currentActiveTab={currentActiveTab}
         setUbsActive={() => setCurrentActiveTab("UBS")}
@@ -52,6 +53,5 @@ export default function Home() {
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
   align-items: center;
 `;

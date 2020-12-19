@@ -17,4 +17,6 @@ const ButtonText = styled.div`
 const MainContainer = styled.button`
   background-color: transparent;
   border: 2px solid ${colors.activeLinkColor};
+  width: 100%;
+  z-index: 2;
 `;
