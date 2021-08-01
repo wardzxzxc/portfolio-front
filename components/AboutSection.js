@@ -74,7 +74,7 @@ const ProfilePic = styled.img`
   height: auto;
   width: auto;
   @media (max-width: 600px) {
-    height: 30%;
+    height: 20%;
   }
 `;
 
